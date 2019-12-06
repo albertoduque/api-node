@@ -1,0 +1,57 @@
+{
+    "name": "node-api",
+    "version": "1.0.0",
+    "description": "Api para nodejs y koa",
+    "main": "server.js",
+    "scripts": {
+        "test": "mocha --reporter spec",
+        "wtest": "mocha -w --reporter spec",
+        "dev": "NODE_ENV=development nodemon -e js server.js",
+        "start": "node server.js"
+    },
+    "author": "Admin",
+    "license": "ISC",
+    "dependencies": {
+        "analytics-node": "^3.4.0-beta.1",
+        "aws-sdk": "^2.260.1",
+        "axios": "^0.18.0",
+        "dotenv": "^4.0.0",
+        "googleapis": "^39.2.0",
+        "gremlin": "3.3.4",
+        "he": "^1.2.0",
+        "iconv-lite": "^0.4.19",
+        "ip2location-nodejs": "^8.1.3",
+        "jwt-simple": "^0.5.1",
+        "knex": "^0.14.1",
+        "koa": "^2.4.1",
+        "koa-body": "^2.5.0",
+        "koa-router": "^7.3.0",
+        "lodash": "^4.17.4",
+        "mandrill-api": "^1.0.45",
+        "moment": "^2.19.2",
+        "mysql": "^2.15.0",
+        "node-gcm": "^0.14.9",
+        "number-formatter": "^1.2.0",
+        "redis": "^2.8.0",
+        "seedrandom": "^2.4.3",
+        "striptags": "^3.1.1",
+        "trae": "^1.4.2",
+        "unzip-stream": "^0.3.0",
+        "url-join": "^2.0.2",
+        "utf8": "^3.0.0",
+        "validator": "^9.4.1"
+    },
+    "devDependencies": {
+        "casual": "^1.5.19",
+        "chai": "^4.1.2",
+        "chai-as-promised": "^7.1.1",
+        "chai-things": "^0.2.0",
+        "eslint-config-standard": "^12.0.0",
+        "mocha": "^5.2.0",
+        "nodemon": "^1.12.1",
+        "standard": "^11.0.1"
+    },
+    "directories": {
+        "test": "test"
+    }
+}
