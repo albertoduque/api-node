@@ -9,7 +9,7 @@ module.exports = function(app) {
     router.post('/login', authController.autorization)
     router.post('/user', authController.createUser)
     router.post('/payment/token', paymentController.getToken)
-    router.post('/payment', paymentController.createPayment)
+    router.post('/payment',securityBasic, paymentController.createPayment)
     router.put('/payment/reverse', paymentController.reversePayment)
 
     app.context.router = router
