@@ -1,9 +1,13 @@
 const Router = require('koa-router')
 const paymentController = require('./PaymentsController')
+const authController = require('./AuthController')
 
 module.exports = function(app) {
     const router = new Router()
 
+    router.get('/user', authController.getUser)
+    router.post('/login', authController.autorization)
+    router.post('/user', authController.createUser)
     router.post('/payment/token', paymentController.getToken)
     router.post('/payment', paymentController.createPayment)
     router.put('/payment/reverse', paymentController.reversePayment)

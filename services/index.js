@@ -10,7 +10,7 @@ const path = require('path')
 var services = {}
 let folder = __dirname
 for (let file of fs.readdirSync(folder).filter(file => fs.lstatSync(path.join(folder, file)).isFile())) {
-    var name = file.split('.')[0]
+    const name = file.split('.')[0]
     if (name !== 'index') {
         services[camelCase(name)] = require(path.resolve(folder, name))
     }

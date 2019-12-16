@@ -1,10 +1,9 @@
-const UsersService = require('../services/Users')
-
-/**
- * Endpoint que devuelve el la informacion del usuario logueado y setea
- * una cookie de session para aplicaciones web
- * @param  {Object} ctx Contexto de la aplicacion
- */
+const UsersService = require('../services/User')
+    /**
+     * Endpoint que devuelve el la informacion del usuario logueado y setea
+     * una cookie de session para aplicaciones web
+     * @param  {Object} ctx Contexto de la aplicacion
+     */
 exports.getWebSession = async function(ctx) {
     const { key, email, name, photo, roles, company, clientConfig } = ctx.state.user
     ctx.cookies.set(process.env.COOKIE_KEY, ctx.state.token)
@@ -38,4 +37,24 @@ exports.getWebSession = async function(ctx) {
 exports.removeWebSession = async function(ctx) {
     ctx.cookies.set(process.env.COOKIE_KEY, '')
     ctx.body = { status: 'Cookie eliminada' }
+}
+
+exports.autorization = async function(ctx) {
+    let { username, password } = ctx.request.body
+    let token = await UsersService.login(username, password)
+
+    ctx.body = token
+}
+
+exports.createUser = async function(ctx) {
+    let { username, password, name } = ctx.request.body
+    let data = await UsersService.saveUser(name, username, password)
+
+    ctx.body = data
+}
+
+exports.getUser = async function(ctx) {
+    let tokens = ctx.headers.token
+
+    ctx.body = tokens
 }
